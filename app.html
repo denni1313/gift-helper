@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#07102a">
+<title>Ajudante de Presentes</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8E%81%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css?v=5">
+</head>
+<body>
+<div class="app">
+
+  <header class="top">
+    <button class="back hidden" id="backBtn" type="button" aria-label="Back">←</button>
+    <div class="langs" id="langs">
+      <button type="button" data-lang="pt">🇵🇹 PT</button>
+      <button type="button" data-lang="ru">🇷🇺 RU</button>
+      <button type="button" data-lang="en">🇬🇧 EN</button>
+    </div>
+  </header>
+
+  <!-- Старт -->
+  <section id="start" class="screen center">
+    <div class="hero">🎁</div>
+    <h1 data-t="title"></h1>
+    <p class="sub" data-t="subtitle"></p>
+    <button class="main" id="startBtn" type="button" data-t="start"></button>
+  </section>
+
+  <!-- Вопрос 1: возраст -->
+  <section id="age" class="screen hidden">
+    <div class="step" data-t="step1"></div>
+    <h2 data-t="qAge"></h2>
+    <div class="options" id="ageOptions"></div>
+  </section>
+
+  <!-- Вопрос 2: интересы -->
+  <section id="likes" class="screen hidden">
+    <div class="step" data-t="step2"></div>
+    <h2 data-t="qLikes"></h2>
+    <p class="hint" data-t="likesHint"></p>
+    <div class="chips" id="likeOptions"></div>
+    <button class="main" id="likesNext" type="button" data-t="next" disabled></button>
+  </section>
+
+  <!-- Вопрос 3: девочка или мальчик -->
+  <section id="gender" class="screen hidden">
+    <div class="step" data-t="step3"></div>
+    <h2 data-t="qGender"></h2>
+    <div class="options" id="genderOptions"></div>
+  </section>
+
+  <!-- Результат -->
+  <section id="result" class="screen hidden">
+    <h2 data-t="resultTitle"></h2>
+    <p class="sub" data-t="resultSub"></p>
+    <div class="ideas" id="ideas"></div>
+    <div class="actions">
+      <button class="main alt" id="prevBtn" type="button" data-t="prevIdeas" disabled></button>
+      <button class="main" id="moreBtn" type="button" data-t="nextIdeas"></button>
+      <button class="main alt" id="againBtn" type="button" data-t="again"></button>
+    </div>
+  </section>
+
+</div>
+
+<script src="data.js?v=5"></script>
+<script src="script.js?v=5"></script>
+<script>
+  // Прячем технический параметр ?t=… из адресной строки: остаётся обычная ссылка на сайт.
+  // Перезагрузка снова попадёт в index.html и получит свежую версию.
+  try { history.replaceState(null, "", location.pathname.replace(/app\.html$/, "")); } catch (e) {}
+</script>
+</body>
+</html>
