@@ -15,6 +15,7 @@
       resultTitle: "Ideias de presente 🎉",
       resultSub: "Escolhe a que mais combina com a criança.",
       more: "Outras ideias",
+      prevIdeas: "← Anterior",
       again: "Começar de novo",
       years: "anos", plus: "anos ou mais"
     },
@@ -32,6 +33,7 @@
       resultTitle: "Идеи подарка 🎉",
       resultSub: "Выбери ту, что больше всего подойдёт ребёнку.",
       more: "Другие идеи",
+      prevIdeas: "← Назад",
       again: "Начать заново",
       years: "лет", plus: "лет и больше"
     },
@@ -49,6 +51,7 @@
       resultTitle: "Gift ideas 🎉",
       resultSub: "Pick the one that fits the child best.",
       more: "Other ideas",
+      prevIdeas: "← Previous",
       again: "Start again",
       years: "years", plus: "years or more"
     }
@@ -230,6 +233,7 @@
       box.appendChild(card);
     });
     $("moreBtn").disabled = (page + 1) * PER_PAGE >= ranked.length;
+    $("prevBtn").disabled = page === 0;
   }
 
   // ---------- Кнопки ----------
@@ -240,6 +244,7 @@
   });
   $("likesNext").addEventListener("click", function () { show("gender"); });
   $("moreBtn").addEventListener("click", function () { page++; renderIdeas(); window.scrollTo(0, 0); });
+  $("prevBtn").addEventListener("click", function () { if (page > 0) { page--; renderIdeas(); window.scrollTo(0, 0); } });
   $("againBtn").addEventListener("click", function () { show("start"); });
   $("backBtn").addEventListener("click", back);
   document.querySelectorAll("#langs button").forEach(function (b) {
