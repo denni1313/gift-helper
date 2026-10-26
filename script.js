@@ -14,7 +14,7 @@
       boy: "Menino", girl: "Menina",
       resultTitle: "Ideias de presente 🎉",
       resultSub: "Escolhe a que mais combina com a criança.",
-      more: "Outras ideias",
+      nextIdeas: "Avançar →",
       prevIdeas: "← Anterior",
       again: "Começar de novo",
       years: "anos", plus: "anos ou mais"
@@ -32,7 +32,7 @@
       boy: "Мальчик", girl: "Девочка",
       resultTitle: "Идеи подарка 🎉",
       resultSub: "Выбери ту, что больше всего подойдёт ребёнку.",
-      more: "Другие идеи",
+      nextIdeas: "Вперёд →",
       prevIdeas: "← Назад",
       again: "Начать заново",
       years: "лет", plus: "лет и больше"
@@ -50,7 +50,7 @@
       boy: "Boy", girl: "Girl",
       resultTitle: "Gift ideas 🎉",
       resultSub: "Pick the one that fits the child best.",
-      more: "Other ideas",
+      nextIdeas: "Next →",
       prevIdeas: "← Previous",
       again: "Start again",
       years: "years", plus: "years or more"
