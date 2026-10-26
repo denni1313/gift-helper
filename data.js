@@ -105,8 +105,6 @@ var GIFTS = [
     name: { pt: "Casa de bonecas", ru: "Кукольный домик", en: "Dollhouse" } },
   { emoji: "🎎", tags: ["dolls"], ages: [3, 4], g: "g",
     name: { pt: "Boneca de coleção (L.O.L. OMG)", ru: "Коллекционная кукла (L.O.L. OMG)", en: "Collector doll (L.O.L. OMG)" } },
-  { emoji: "🪆", tags: ["dolls"], ages: [3, 4],
-    name: { pt: "Bonecas russas (matryoshka)", ru: "Матрёшки", en: "Matryoshka nesting dolls" } },
   { emoji: "🪡", tags: ["dolls", "art"], ages: [3, 4], g: "g",
     name: { pt: "Kit para criar roupa para bonecas", ru: "Набор для шитья одежды куклам", en: "Doll clothes sewing kit" } },
 
