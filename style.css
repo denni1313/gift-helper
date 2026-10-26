@@ -1,0 +1,126 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  min-height: 100vh;
+  font-family: "Trebuchet MS", "Segoe UI", system-ui, sans-serif;
+  color: #3b1d5e;
+  /* неон: тёмно-синий, почти чёрный, с голубыми светящимися пятнами */
+  background:
+    radial-gradient(circle at 15% 10%, rgba(0, 229, 255, .35), transparent 40%),
+    radial-gradient(circle at 85% 30%, rgba(41, 121, 255, .40), transparent 45%),
+    radial-gradient(circle at 50% 100%, rgba(0, 200, 255, .30), transparent 50%),
+    linear-gradient(160deg, #0b1a3a 0%, #07102a 50%, #050814 100%);
+  background-color: #07102a;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  padding: 16px;
+}
+
+.app { width: 100%; max-width: 720px; display: flex; flex-direction: column; gap: 18px; }
+.hidden { display: none !important; }
+
+/* ---------- Шапка: назад + языки ---------- */
+.top { display: flex; align-items: center; justify-content: space-between; gap: 10px; min-height: 48px; }
+.back {
+  width: 48px; height: 48px; border-radius: 50%; cursor: pointer;
+  background: rgba(0, 229, 255, .12); color: #7df9ff; font-size: 1.5rem; font-weight: 900;
+  border: 2px solid #00e5ff; box-shadow: 0 0 12px rgba(0, 229, 255, .6);
+}
+.langs {
+  display: flex; gap: 6px; margin-left: auto; padding: 5px; border-radius: 999px;
+  background: rgba(0, 229, 255, .08); border: 2px solid rgba(0, 229, 255, .5);
+  box-shadow: 0 0 14px rgba(0, 229, 255, .35);
+}
+.langs button {
+  border: none; cursor: pointer; font: inherit; font-weight: 800; font-size: .95rem;
+  padding: 8px 12px; border-radius: 999px; background: transparent; color: #bdf6ff;
+}
+.langs button.on { background: #00e5ff; color: #04102a; box-shadow: 0 0 12px #00e5ff; }
+
+/* ---------- Экраны ---------- */
+.screen {
+  /* тёмно-жёлтый неон */
+  background: linear-gradient(160deg, #e0b000 0%, #c79400 55%, #a87a00 100%);
+  border-radius: 28px; padding: 28px 22px;
+  border: 3px solid #ffe14d;
+  box-shadow: 0 0 18px rgba(255, 214, 0, .85), 0 0 45px rgba(255, 190, 0, .55), inset 0 0 22px rgba(255, 230, 80, .45);
+  display: flex; flex-direction: column; gap: 16px;
+  animation: pop .3s ease;
+}
+@keyframes pop { from { transform: translateY(10px); opacity: 0; } to { transform: none; opacity: 1; } }
+.center { align-items: center; text-align: center; padding: 40px 22px; }
+
+.hero { font-size: clamp(4rem, 18vw, 6rem); animation: wiggle 2.5s ease-in-out infinite; }
+@keyframes wiggle { 0%, 100% { transform: rotate(0); } 10% { transform: rotate(-10deg); } 20% { transform: rotate(10deg); } 30% { transform: rotate(0); } }
+
+/* название — тёмный неоновый фиолетовый */
+h1 {
+  font-size: clamp(2rem, 8vw, 3rem); font-weight: 900; line-height: 1.1;
+  color: #6a00f4;
+  text-shadow: 0 0 6px rgba(157, 78, 255, .9), 0 0 18px rgba(157, 78, 255, .6), 0 0 32px rgba(106, 0, 244, .4);
+}
+h2 { font-size: clamp(1.5rem, 6vw, 2.1rem); font-weight: 900; line-height: 1.2; }
+.sub { font-size: clamp(1.05rem, 4vw, 1.3rem); color: #2a1145; font-weight: 700; max-width: 28em; }
+.hint { color: #2a1145; font-weight: 700; font-size: 1.05rem; margin-top: -8px; }
+.step {
+  align-self: flex-start; background: #fff1d6; color: #b4570f; font-weight: 800;
+  border-radius: 999px; padding: 6px 14px; font-size: .95rem;
+}
+
+/* ---------- Кнопки ---------- */
+.main {
+  cursor: pointer; font: inherit; font-weight: 900; font-size: 1.25rem;
+  min-height: 56px; padding: 14px 34px; border-radius: 18px; color: #7df9ff;
+  /* тёмно-синий неон */
+  background: linear-gradient(135deg, #0a1f5c, #061238);
+  border: 2px solid #00b4ff;
+  text-shadow: 0 0 8px rgba(0, 229, 255, .9);
+  box-shadow: 0 0 12px rgba(0, 180, 255, .7), 0 0 28px rgba(0, 120, 255, .45), inset 0 0 12px rgba(0, 180, 255, .35);
+  transition: transform .1s ease, box-shadow .1s ease, opacity .2s ease;
+}
+.main:hover:not(:disabled) { box-shadow: 0 0 18px rgba(0, 200, 255, .9), 0 0 40px rgba(0, 120, 255, .6), inset 0 0 14px rgba(0, 180, 255, .45); }
+.main:active:not(:disabled) { transform: translateY(3px); }
+.main:disabled { opacity: .4; cursor: default; }
+/* ---------- Кнопки выбора: тот же тёмно-синий неон, что у «Начать» ---------- */
+.options { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.opt, .chip {
+  cursor: pointer; font: inherit; font-weight: 900; color: #7df9ff;
+  background: linear-gradient(135deg, #0a1f5c, #061238);
+  border: 2px solid #00b4ff;
+  text-shadow: 0 0 8px rgba(0, 229, 255, .9);
+  box-shadow: 0 0 12px rgba(0, 180, 255, .7), 0 0 28px rgba(0, 120, 255, .45), inset 0 0 12px rgba(0, 180, 255, .35);
+  transition: transform .1s ease, box-shadow .15s ease, background .15s ease;
+}
+.opt:hover, .chip:hover { box-shadow: 0 0 18px rgba(0, 200, 255, .9), 0 0 40px rgba(0, 120, 255, .6), inset 0 0 14px rgba(0, 180, 255, .45); }
+.opt {
+  font-size: 1.3rem; min-height: 96px; padding: 14px; border-radius: 20px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px;
+}
+.opt small { font-size: .95rem; font-weight: 700; opacity: .9; }
+.opt:active, .chip:active { transform: translateY(3px); }
+
+.chips { display: flex; flex-wrap: wrap; gap: 10px; }
+.chip { font-weight: 800; font-size: 1.05rem; min-height: 50px; padding: 10px 16px; border-radius: 999px; }
+/* выбранный вариант — ярко-голубой */
+.chip.on {
+  background: #00e5ff; color: #04102a; text-shadow: none; border-color: #bff9ff;
+  box-shadow: 0 0 16px #00e5ff, 0 0 36px rgba(0, 229, 255, .6);
+}
+
+/* ---------- Результат ---------- */
+.ideas { display: grid; grid-template-columns: 1fr; gap: 12px; }
+.idea {
+  display: flex; align-items: center; gap: 16px; padding: 16px 18px; border-radius: 20px;
+  background: #fff8ec; border: 3px solid #ffe2b8; animation: pop .35s ease both;
+}
+.idea .em { font-size: 2.6rem; flex: none; width: 56px; text-align: center; }
+.idea b { display: block; font-size: 1.2rem; }
+.idea span { color: #8a6aa8; font-size: .95rem; font-weight: 700; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 4px; }
+
+@media (max-width: 480px) {
+  .screen { padding: 22px 16px; border-radius: 24px; }
+  .opt { min-height: 84px; font-size: 1.1rem; }
+  .actions .main { width: 100%; }
+}
